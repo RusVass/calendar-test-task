@@ -1,0 +1,47 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(26, 31, 44, 0.35);
+  padding: 24px;
+}
+
+.modal {
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid #e6e8f0;
+  background-color: #ffffff;
+  box-shadow: 0 20px 40px rgba(19, 26, 45, 0.16);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #edf0f6;
+  padding: 16px 18px;
+}
+
+.title {
+  margin: 0;
+  color: #4a4f63;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.closeButton {
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: #8e94a8;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.body {
+  padding: 18px;
+}
+

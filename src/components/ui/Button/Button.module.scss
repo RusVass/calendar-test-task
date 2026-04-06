@@ -1,0 +1,38 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 14px;
+  border: 1px solid #d9dce7;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #6d7388;
+  font-size: 12px;
+  line-height: 1;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: #c9cedd;
+  }
+}
+
+.secondary {
+  background-color: #ffffff;
+}
+
+.tab {
+  min-width: 48px;
+  padding: 0 10px;
+}
+
+.active {
+  border-color: #d5defa;
+  background-color: #f5f8ff;
+  color: #3b82f6;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

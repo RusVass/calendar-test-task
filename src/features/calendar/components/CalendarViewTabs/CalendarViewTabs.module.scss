@@ -1,0 +1,35 @@
+.tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid #d9dce7;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.tabs :global(button) {
+  min-width: 50px;
+  height: 30px;
+  padding: 0 12px;
+  border: 0;
+  border-right: 1px solid #e3e6ef;
+  border-radius: 0;
+  background-color: #ffffff;
+  color: #6d7388;
+  font-size: 12px;
+}
+
+.tabs :global(button:last-child) {
+  border-right: 0;
+}
+
+.tabs :global(button:hover) {
+  background-color: #f8f9fd;
+}
+
+.tabs :global(button[data-active='true']) {
+  background-color: #f5f8ff !important;
+  color: #3b82f6 !important;
+  font-weight: 600;
+}

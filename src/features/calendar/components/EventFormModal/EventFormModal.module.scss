@@ -1,0 +1,65 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  color: #72788d;
+  font-size: 12px;
+}
+
+.input {
+  height: 38px;
+  border: 1px solid #d9dce7;
+  background-color: #ffffff;
+  padding: 0 12px;
+  color: #43495c;
+  outline: none;
+
+  &:focus {
+    border-color: #b8c6ef;
+  }
+}
+
+.colors {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.colorButton {
+  height: 24px;
+  width: 24px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.colorButtonActive {
+  border-color: #1f2433;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 8px;
+}
+
+.error {
+  color: #ef4444;
+  font-size: 11px;
+}
