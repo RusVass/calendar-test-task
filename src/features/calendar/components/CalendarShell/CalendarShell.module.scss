@@ -203,3 +203,9 @@
 :global(.fc .fc-toolbar) {
   display: none;
 }
+
+@media (max-width: 768px) {
+  :global(.fc) {
+    min-width: 720px;
+  }
+}

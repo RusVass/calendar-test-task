@@ -148,3 +148,29 @@
   font-size: 40px;
   font-weight: 400;
 }
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .header {
+    padding: 0 16px;
+  }
+
+  .content {
+    padding: 16px;
+  }
+
+  .search {
+    display: none;
+  }
+
+  .userName {
+    display: none;
+  }
+
+  .pageTitle {
+    font-size: 28px;
+  }
+}
