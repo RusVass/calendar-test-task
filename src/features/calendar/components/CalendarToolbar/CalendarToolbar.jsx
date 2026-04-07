@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Button } from '../../../../components/ui/Button/Button';
 import { CalendarViewTabs } from '../CalendarViewTabs/CalendarViewTabs';
 import styles from './CalendarToolbar.module.scss';
@@ -6,25 +5,21 @@ import styles from './CalendarToolbar.module.scss';
 export const CalendarToolbar = ({
   title,
   activeView,
+  activeNavigationTab,
   onTodayClick,
   onPrevClick,
   onNextClick,
   onViewChange,
 }) => {
-  const [activeNavigationTab, setActiveNavigationTab] = useState('');
-
   const handleTodayClick = () => {
-    setActiveNavigationTab('today');
     onTodayClick();
   };
 
   const handlePrevClick = () => {
-    setActiveNavigationTab('back');
     onPrevClick();
   };
 
   const handleNextClick = () => {
-    setActiveNavigationTab('next');
     onNextClick();
   };
 

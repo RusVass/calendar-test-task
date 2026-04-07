@@ -39,6 +39,7 @@ export const CalendarShell = () => {
   const updateEvent = useCalendarStore((state) => state.updateEvent);
 
   const [calendarTitle, setCalendarTitle] = useState('');
+  const [activeNavigationTab, setActiveNavigationTab] = useState('today');
 
   const updateCalendarState = () => {
     const calendarApi = calendarRef.current?.getApi();
@@ -60,6 +61,7 @@ export const CalendarShell = () => {
       return;
     }
 
+    setActiveNavigationTab('today');
     calendarApi.today();
     updateCalendarState();
   };
@@ -71,6 +73,7 @@ export const CalendarShell = () => {
       return;
     }
 
+    setActiveNavigationTab('back');
     calendarApi.prev();
     updateCalendarState();
   };
@@ -82,6 +85,7 @@ export const CalendarShell = () => {
       return;
     }
 
+    setActiveNavigationTab('next');
     calendarApi.next();
     updateCalendarState();
   };
@@ -93,6 +97,7 @@ export const CalendarShell = () => {
       return;
     }
 
+    setActiveNavigationTab('');
     calendarApi.changeView(nextView);
     updateCalendarState();
   };
@@ -110,6 +115,7 @@ export const CalendarShell = () => {
     }
 
     if (activeView !== 'timeGridDay') {
+      setActiveNavigationTab('');
       calendarApi.changeView('timeGridDay', info.date);
       updateCalendarState();
       return;
@@ -158,6 +164,7 @@ export const CalendarShell = () => {
       <CalendarToolbar
         title={calendarTitle}
         activeView={activeView}
+        activeNavigationTab={activeNavigationTab}
         onTodayClick={handleTodayClick}
         onPrevClick={handlePrevClick}
         onNextClick={handleNextClick}
