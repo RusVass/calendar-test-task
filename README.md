@@ -3,6 +3,10 @@
 A React calendar application built with FullCalendar.  
 It supports event creation, editing, deletion, drag and drop, resize, and month, week, day, and agenda views.
 
+## Live Demo
+
+- https://rusvass.github.io/calendar-test-task
+
 ## Design Reference
 
 - **Adobe XD spec:** https://xd.adobe.com/spec/75bd36fc-a3d9-4efa-45ab-45cbd3c74063-038c/
