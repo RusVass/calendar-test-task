@@ -97,11 +97,24 @@ export const CalendarShell = () => {
     updateCalendarState();
   };
 
-  const handleDatesSet = () => {
-    updateCalendarState();
+  const handleDatesSet = (info) => {
+    setActiveView(info.view.type);
+    setCalendarTitle(info.view.title);
   };
 
   const handleDateClick = (info) => {
+    const calendarApi = calendarRef.current?.getApi();
+
+    if (!calendarApi) {
+      return;
+    }
+
+    if (activeView !== 'timeGridDay') {
+      calendarApi.changeView('timeGridDay', info.date);
+      updateCalendarState();
+      return;
+    }
+
     openEventModal({ date: info.dateStr });
   };
 
@@ -166,8 +179,12 @@ export const CalendarShell = () => {
           editable={true}
           selectable={false}
           allDaySlot={true}
+          navLinks={true}
+          navLinkDayClick="timeGridDay"
+          slotEventOverlap={activeView !== 'timeGridDay'}
           slotLabelInterval="02:00:00"
           slotLabelContent={formatTimeGridSlotLabel}
+          nowIndicator={true}
           datesSet={handleDatesSet}
           dateClick={handleDateClick}
           eventClick={handleEventClick}

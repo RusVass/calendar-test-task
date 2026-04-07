@@ -1,5 +1,5 @@
 const padValue = (value) => {
-  return String(value).padStart(2, '0');
+  return String(value).padStart(2, "0");
 };
 
 export const formatDateForInput = (dateValue) => {
@@ -26,7 +26,7 @@ export const buildEventDateTime = (date, time) => {
 };
 
 export const getDefaultEndTime = (time) => {
-  const [hours, minutes] = time.split(':').map(Number);
+  const [hours, minutes] = time.split(":").map(Number);
 
   const nextDate = new Date();
   nextDate.setHours(hours, minutes, 0, 0);
@@ -41,25 +41,24 @@ export const getDefaultEndTime = (time) => {
 export const createInitialFormValues = (selectedEvent, selectedDate) => {
   if (selectedEvent) {
     return {
-      title: selectedEvent.title || '',
+      title: selectedEvent.title || "",
       date: formatDateForInput(selectedEvent.start),
       startTime: formatTimeForInput(selectedEvent.start),
       endTime: formatTimeForInput(selectedEvent.end),
-      color: selectedEvent.backgroundColor || '#3b82f6',
+      color: selectedEvent.backgroundColor || "#3b82f6",
     };
   }
 
   const baseDate = selectedDate || new Date();
   const defaultDate = formatDateForInput(baseDate);
-  const defaultStartTime = '09:00';
+  const defaultStartTime = "09:00";
   const defaultEndTime = getDefaultEndTime(defaultStartTime);
 
   return {
-    title: '',
+    title: "",
     date: defaultDate,
     startTime: defaultStartTime,
     endTime: defaultEndTime,
-    color: '#3b82f6',
+    color: "#3b82f6",
   };
 };
-

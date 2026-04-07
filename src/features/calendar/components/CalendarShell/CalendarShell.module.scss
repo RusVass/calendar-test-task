@@ -127,8 +127,77 @@
   padding: 4px 6px;
 }
 
+:global(.fc .fc-timeGridDay-view .fc-timegrid-col-events) {
+  margin: 0;
+}
+
+:global(.fc .fc-timeGridDay-view .fc-timegrid-event-harness) {
+  left: 0 !important;
+  right: 0 !important;
+}
+
+:global(.fc .fc-timeGridDay-view .fc-timegrid-event-harness-inset) {
+  right: 0 !important;
+}
+
+:global(.fc .fc-timeGridDay-view .fc-timegrid-event) {
+  margin: 0 !important;
+}
+
+:global(.fc .fc-timeGridDay-view .fc-timegrid-event .fc-event-main) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+:global(.fc .fc-timeGridDay-view .fc-timegrid-event .fc-event-main-frame) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+:global(.fc .fc-timeGridDay-view .fc-timegrid-event .fc-event-time) {
+  margin: 0;
+  white-space: nowrap;
+}
+
+:global(.fc .fc-timeGridDay-view .fc-timegrid-event .fc-event-title-container) {
+  flex: 0 0 auto;
+}
+
 :global(.fc .fc-day-today) {
   background-color: rgba(59, 130, 246, 0.04) !important;
+}
+
+:global(.fc .fc-timegrid-now-indicator-line) {
+  position: relative;
+  border-color: #8ec5ff;
+  border-width: 1px;
+  z-index: 2;
+}
+
+:global(.fc .fc-timegrid-now-indicator-line::before) {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 0;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: #3b82f6;
+  box-shadow: 0 0 0 2px #ffffff;
+  transform: translateX(0);
+  z-index: 3;
+}
+
+:global(.fc .fc-timegrid-now-indicator-container) {
+  overflow: visible;
+}
+
+:global(.fc .fc-timegrid-now-indicator-arrow) {
+  display: none;
 }
 
 :global(.fc .fc-toolbar) {
