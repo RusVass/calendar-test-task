@@ -5,50 +5,85 @@ It supports event creation, editing, deletion, drag and drop, resize, and month,
 
 ## Design Reference
 
-- Adobe XD spec: https://xd.adobe.com/spec/75bd36fc-a3d9-4efa-45ab-45cbd3c74063-038c/
-- Password: `ReactTest2019`
-Run development server
+- **Adobe XD spec:** https://xd.adobe.com/spec/75bd36fc-a3d9-4efa-45ab-45cbd3c74063-038c/
+- **Password:** `ReactTest2019`
+
+## Getting Started
+
+### **Install dependencies**
+
+```bash
+npm install
+```
+
+### **Run development server**
+
+```bash
 npm run dev
-Build for production
+```
+
+### **Build for production**
+
+```bash
 npm run build
-Run lint
+```
+
+### **Run lint**
+
+```bash
 npm run lint
-Features
-Event Management
-Create a new event via modal.
-Edit existing events.
-Delete events.
-Drag and drop events to a different date or time.
-Resize events to change duration.
-Keep the selected event color and display it correctly.
-Form Validation
-Event title is required.
-Maximum title length is 30 characters.
-Past dates are not allowed.
-endTime must be greater than startTime.
-Calendar Views
-Month
-Week
-Day
-Agenda
-Navigation
-Today, Back, and Next buttons.
-Switch views using tabs.
-Dynamic header title based on the current view and date.
-Date click transitions:
-click a date in Month or Week view to open Day view for that date;
-click a time slot in Day view to open the event modal.
-Current Time Indicator
-nowIndicator is enabled in time grid views.
-The indicator line and marker are custom styled to match the design.
-Architecture
+```
+
+## Features
+
+### **Event Management**
+
+- Create a new event via modal.
+- Edit existing events.
+- Delete events.
+- Drag and drop events to a different date or time.
+- Resize events to change duration.
+- Keep the selected event color and display it correctly.
+
+### **Form Validation**
+
+- Event title is required.
+- Maximum title length is 30 characters.
+- Past dates are not allowed.
+- `endTime` must be greater than `startTime`.
+
+### **Calendar Views**
+
+- Month
+- Week
+- Day
+- Agenda
+
+### **Navigation**
+
+- Today, Back, and Next buttons.
+- Switch views using tabs.
+- Dynamic header title based on the current view and date.
+- Date click transitions:
+  - click a date in Month or Week view to open Day view for that date;
+  - click a time slot in Day view to open the event modal.
+
+### **Current Time Indicator**
+
+- `nowIndicator` is enabled in time grid views.
+- The indicator line and marker are custom styled to match the design.
+
+## Architecture
 
 The project is structured around the calendar feature and reusable UI components.
 
-features/calendar contains the calendar business logic.
-components/ui contains reusable UI components such as Button and Modal.
-layouts and pages define the application layout and page structure.
-Project Structure
+- **`features/calendar`** contains the calendar business logic.
+- **`components/ui`** contains reusable UI components such as Button and Modal.
+- **`layouts` and `pages`** define the application layout and page structure.
+
+## Project Structure
+
+```text
 src/
   App.jsx
   main.jsx
@@ -93,6 +128,8 @@ src/
   pages/
     CalendarPage/
       CalendarPage.jsx
+```
+
 ## Goal
 
 Recreate the provided UI and implement the main calendar workflows:
@@ -125,11 +162,3 @@ Recreate the provided UI and implement the main calendar workflows:
 - ESLint
 - `eslint-plugin-react-hooks`
 - `eslint-plugin-react-refresh`
-
-## Getting Started
-
-### Install
-
-```bash
-npm install
-```
