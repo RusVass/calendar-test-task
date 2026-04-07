@@ -71,7 +71,7 @@ npm run lint
 ### **Current Time Indicator**
 
 - `nowIndicator` is enabled in time grid views.
-- The indicator line and marker are custom styled to match the design.
+- The indicator line and marker are custom-styled to match the design.
 
 ## Architecture
 
