@@ -1,0 +1,24 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: calendar-mongo
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build:
+      context: ./backend
+    container_name: calendar-backend
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    env_file:
+      - ./backend/.env
+    ports:
+      - '3001:3001'
+
+volumes:
+  mongo_data:

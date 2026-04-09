@@ -1,0 +1,335 @@
+.card {
+  border: 1px solid #e6e8f0;
+  background-color: #ffffff;
+  padding: 12px;
+}
+
+.calendarWrapper {
+  margin-top: 12px;
+  overflow-x: hidden;
+}
+
+.loadingBanner {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  font-size: 12px;
+}
+
+.errorBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  background-color: #fef2f2;
+  color: #991b1b;
+  font-size: 12px;
+}
+
+.errorDismiss {
+  border: none;
+  background: transparent;
+  color: #b91c1c;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+:global(.fc) {
+  --fc-border-color: #edf0f6;
+  --fc-button-text-color: #6d7388;
+  --fc-page-bg-color: #ffffff;
+  --fc-neutral-bg-color: #f7f8fc;
+  --fc-list-event-hover-bg-color: #f5f8ff;
+  --fc-today-bg-color: rgba(59, 130, 246, 0.04);
+
+  width: 100%;
+  font-size: 11px;
+  color: #5f6579;
+}
+
+:global(.fc .fc-scrollgrid),
+:global(.fc .fc-scrollgrid table) {
+  border-color: #edf0f6;
+}
+
+:global(.fc .fc-col-header-cell) {
+  height: 34px;
+  background-color: #f7f8fc;
+}
+
+:global(.fc .fc-col-header-cell-cushion) {
+  padding: 8px 4px;
+  color: #a0a6b8;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+:global(.fc .fc-daygrid-day-frame) {
+  min-height: 84px;
+}
+
+:global(.fc .fc-daygrid-day-top) {
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 6px 8px 0 8px;
+}
+
+:global(.fc .fc-daygrid-day-number) {
+  color: #6f7589;
+  font-size: 11px;
+  padding: 0;
+}
+
+:global(.fc .fc-timegrid-slot) {
+  height: 10px;
+}
+
+:global(.fc .fc-timeGridWeek-view .fc-timegrid-slot) {
+  height: 14px;
+}
+
+:global(.fc .fc-timegrid-allday .fc-timegrid-slot),
+:global(.fc .fc-timegrid-allday .fc-timegrid-axis),
+:global(.fc .fc-timegrid-allday .fc-timegrid-slot-lane) {
+  height: 64px !important;
+  min-height: 64px !important;
+}
+
+:global(.fc .fc-timegrid .fc-daygrid-body-unbalanced .fc-daygrid-day-events) {
+  min-height: 0 !important;
+}
+
+:global(.fc .fc-timegrid .fc-daygrid-day-frame) {
+  min-height: 64px !important;
+}
+
+:global(.fc .fc-timegrid .fc-timegrid-axis-frame) {
+  height: 64px !important;
+  min-height: 64px !important;
+}
+
+:global(.fc .fc-timegrid-slot-label-cushion),
+:global(.fc .fc-timegrid-axis-cushion) {
+  padding: 0 6px;
+}
+
+:global(.fc .fc-timegrid-axis),
+:global(.fc .fc-timegrid-slot-label) {
+  color: #8f95a8;
+  font-size: 10px;
+}
+
+:global(.fc .fc-list-day-cushion) {
+  background-color: #f7f8fc;
+}
+
+:global(.fc .fc-list-day-text),
+:global(.fc .fc-list-day-side-text) {
+  color: #6d7388;
+  font-size: 11px;
+}
+
+:global(.fc .fc-event) {
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+  background-color: var(--fc-event-bg-color);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+:global(.fc .fc-event-main) {
+  padding: 2px 5px;
+  font-size: 10px;
+}
+
+:global(.fc .fc-timegrid-event .fc-event-main) {
+  padding: 3px 5px;
+}
+
+:global(.fc .fc-timeGridDay-view .fc-timegrid-col-events) {
+  margin: 0;
+}
+
+:global(.fc .fc-timeGridDay-view .fc-timegrid-event-harness) {
+  left: 0 !important;
+  right: 0 !important;
+}
+
+:global(.fc .fc-timeGridDay-view .fc-timegrid-event-harness-inset) {
+  right: 0 !important;
+}
+
+:global(.fc .fc-timeGridDay-view .fc-timegrid-event) {
+  margin: 0 !important;
+}
+
+:global(.fc .fc-timeGridDay-view .fc-timegrid-event .fc-event-main) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+:global(.fc .fc-timeGridDay-view .fc-timegrid-event .fc-event-main-frame) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+:global(.fc .fc-timeGridDay-view .fc-timegrid-event .fc-event-time) {
+  margin: 0;
+  white-space: nowrap;
+}
+
+:global(.fc .fc-timeGridDay-view .fc-timegrid-event .fc-event-title-container) {
+  flex: 0 0 auto;
+}
+
+:global(.fc .fc-day-today) {
+  background-color: rgba(59, 130, 246, 0.04) !important;
+}
+
+:global(.fc .fc-timegrid-now-indicator-line) {
+  position: relative;
+  border-color: #8ec5ff;
+  border-width: 1px;
+  z-index: 2;
+}
+
+:global(.fc .fc-timegrid-now-indicator-line::before) {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 0;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: #3b82f6;
+  box-shadow: 0 0 0 2px #ffffff;
+  transform: translateX(0);
+  z-index: 3;
+}
+
+:global(.fc .fc-timegrid-now-indicator-container) {
+  overflow: visible;
+}
+
+:global(.fc .fc-timegrid-now-indicator-arrow) {
+  display: none;
+}
+
+:global(.fc .fc-toolbar) {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 16px;
+  }
+
+  .calendarWrapper {
+    margin-top: 16px;
+  }
+
+  :global(.fc) {
+    font-size: 12px;
+  }
+
+  :global(.fc .fc-col-header-cell) {
+    height: 36px;
+  }
+
+  :global(.fc .fc-col-header-cell-cushion) {
+    padding: 10px 4px;
+    font-size: 10px;
+  }
+
+  :global(.fc .fc-daygrid-day-frame) {
+    min-height: 104px;
+  }
+
+  :global(.fc .fc-daygrid-day-number) {
+    font-size: 12px;
+  }
+
+  :global(.fc .fc-timegrid-slot) {
+    height: 12px;
+  }
+
+  :global(.fc .fc-timeGridWeek-view .fc-timegrid-slot) {
+    height: 18px;
+  }
+
+  :global(.fc .fc-timegrid-axis),
+  :global(.fc .fc-timegrid-slot-label) {
+    font-size: 11px;
+  }
+
+  :global(.fc .fc-list-day-text),
+  :global(.fc .fc-list-day-side-text) {
+    font-size: 12px;
+  }
+
+  :global(.fc .fc-event-main) {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    padding: 20px 20px 24px;
+  }
+
+  .calendarWrapper {
+    margin-top: 20px;
+    overflow-x: auto;
+  }
+
+  :global(.fc .fc-col-header-cell) {
+    height: 38px;
+  }
+
+  :global(.fc .fc-daygrid-day-frame) {
+    min-height: 128px;
+  }
+
+  :global(.fc .fc-timeGridWeek-view .fc-timegrid-slot) {
+    height: 20px;
+  }
+
+  :global(.fc .fc-timeGridWeek-view .fc-scrollgrid),
+  :global(.fc .fc-timeGridWeek-view .fc-col-header),
+  :global(.fc .fc-timeGridWeek-view .fc-timegrid-body table) {
+    min-width: 1200px;
+  }
+
+  :global(.fc .fc-timegrid-slot-label-cushion),
+  :global(.fc .fc-timegrid-axis-cushion) {
+    padding: 0 10px;
+  }
+
+  :global(.fc .fc-event-main) {
+    padding: 2px 6px;
+  }
+
+  :global(.fc .fc-timegrid-event .fc-event-main) {
+    padding: 4px 6px;
+  }
+}
+
+@media (min-width: 768px) {
+  :global(.fc) {
+    min-width: 0;
+  }
+}

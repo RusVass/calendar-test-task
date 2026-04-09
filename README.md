@@ -1,168 +1,85 @@
-# Calendar Test Task
+# Calendar App
 
-A React calendar application built with FullCalendar.  
-It supports event creation, editing, deletion, drag and drop, resize, and month, week, day, and agenda views.
+## Project overview
 
-## Live Demo
+Calendar application with separated frontend and backend.
 
-- https://rusvass.github.io/calendar-test-task
+- Frontend renders calendar UI with month, week, day, and agenda views.
+- Backend provides CRUD API for calendar events.
+- Main features are create, edit, delete, drag and drop, and resize.
 
-## Design Reference
-
-- **Adobe XD spec:** https://xd.adobe.com/spec/75bd36fc-a3d9-4efa-45ab-45cbd3c74063-038c/
-- **Password:** `ReactTest2019`
-
-## Getting Started
-
-### **Install dependencies**
-
-```bash
-npm install
-```
-
-### **Run development server**
-
-```bash
-npm run dev
-```
-
-### **Build for production**
-
-```bash
-npm run build
-```
-
-### **Run lint**
-
-```bash
-npm run lint
-```
-
-## Features
-
-### **Event Management**
-
-- Create a new event via modal.
-- Edit existing events.
-- Delete events.
-- Drag and drop events to a different date or time.
-- Resize events to change duration.
-- Keep the selected event color and display it correctly.
-
-### **Form Validation**
-
-- Event title is required.
-- Maximum title length is 30 characters.
-- Past dates are not allowed.
-- `endTime` must be greater than `startTime`.
-
-### **Calendar Views**
-
-- Month
-- Week
-- Day
-- Agenda
-
-### **Navigation**
-
-- Today, Back, and Next buttons.
-- Switch views using tabs.
-- Dynamic header title based on the current view and date.
-- Date click transitions:
-  - click a date in Month or Week view to open Day view for that date;
-  - click a time slot in Day view to open the event modal.
-
-### **Current Time Indicator**
-
-- `nowIndicator` is enabled in time grid views.
-- The indicator line and marker are custom-styled to match the design.
-
-## Architecture
-
-The project is structured around the calendar feature and reusable UI components.
-
-- **`features/calendar`** contains the calendar business logic.
-- **`components/ui`** contains reusable UI components such as Button and Modal.
-- **`layouts` and `pages`** define the application layout and page structure.
-
-## Project Structure
-
-```text
-src/
-  App.jsx
-  main.jsx
-  styles/
-    globals.scss
-    variables.scss
-
-  components/
-    ui/
-      Button/
-        Button.jsx
-        Button.module.scss
-      Modal/
-        Modal.jsx
-        Modal.module.scss
-
-  features/
-    calendar/
-      components/
-        CalendarShell/
-          CalendarShell.jsx
-          CalendarShell.module.scss
-        CalendarToolbar/
-          CalendarToolbar.jsx
-          CalendarToolbar.module.scss
-        CalendarViewTabs/
-          CalendarViewTabs.jsx
-          CalendarViewTabs.module.scss
-        EventFormModal/
-          EventFormModal.jsx
-          EventFormModal.module.scss
-      helpers/
-        eventForm.js
-      store/
-        useCalendarStore.js
-
-  layouts/
-    MainLayout/
-      MainLayout.jsx
-      MainLayout.module.scss
-
-  pages/
-    CalendarPage/
-      CalendarPage.jsx
-```
-
-## Goal
-
-Recreate the provided UI and implement the main calendar workflows:
-
-- create events with validation;
-- choose an event color;
-- display events in the correct time order;
-- handle simultaneous events correctly;
-- edit and delete events;
-- support drag and drop and resize;
-- navigate across month, week, and day views, including date click transitions.
-
-## Tech Stack
-
-### Core
+## Tech stack
 
 - React
 - Vite
-- FullCalendar:
-  - `@fullcalendar/react`
-  - `@fullcalendar/daygrid`
-  - `@fullcalendar/timegrid`
-  - `@fullcalendar/list`
-  - `@fullcalendar/interaction`
-- Zustand for state management
-- SCSS Modules for styling
+- FullCalendar
+- Zustand
+- Nest.js
+- MongoDB
+- Mongoose
+- Docker Compose
 
-### Tooling
+## Run locally
 
-- ESLint
-- `eslint-plugin-react-hooks`
-- `eslint-plugin-react-refresh`
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### Backend
+
+```bash
+cd backend
+npm install
+npm run start:dev
+```
+
+### Docker
+
+```bash
+docker compose up --build
+```
+
+## Environment variables
+
+### `frontend/.env`
+
+```env
+VITE_API_URL=http://localhost:3001
+```
+
+### `backend/.env`
+
+```env
+PORT=3001
+MONGODB_URI=mongodb://mongo:27017/calendar_db
+CLIENT_URL=http://localhost:5173
+```
+
+## API endpoints
+
+- `GET /events`
+- `POST /events`
+- `PATCH /events/:id`
+- `DELETE /events/:id`
+- `GET /health`
+
+## Architecture decisions
+
+- Frontend and backend are separated into dedicated folders.
+- Frontend state management goes through a single calendar store.
+- API integration is centralized in `frontend/src/api/eventsApi.js`.
+- Drag and drop updates are reverted in UI when request fails.
+- Docker Compose runs backend and MongoDB in one network.
+
+## Smoke test checklist
+
+- Create event, event is persisted and visible after refresh.
+- Edit event fields, changes remain after refresh.
+- Drag and drop updates event time, data remains after refresh.
+- Resize updates event end time, data remains after refresh.
+- Delete removes event, it does not return after refresh.
+- Validation errors are shown for invalid payloads.
