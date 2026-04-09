@@ -7,6 +7,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import { useCalendarStore } from '../../store/useCalendarStore';
 import { EventFormModal } from '../EventFormModal/EventFormModal';
 import { CalendarToolbar } from '../CalendarToolbar/CalendarToolbar';
+import { shouldSwitchToMobileDefaultView } from './calendarViewRules';
 import styles from './CalendarShell.module.scss';
 
 const INITIAL_VIEW = 'dayGridMonth';
@@ -31,18 +32,6 @@ const shouldHideEventTime = (view) => {
   return false;
 };
 
-const isSimpleMobileView = (view) => {
-  if (view === 'listWeek') {
-    return true;
-  }
-
-  if (view === 'timeGridDay') {
-    return true;
-  }
-
-  return false;
-};
-
 const getIsMobileViewport = () => {
   if (typeof window === 'undefined') {
     return false;
@@ -53,6 +42,7 @@ const getIsMobileViewport = () => {
 
 export const CalendarShell = () => {
   const calendarRef = useRef(null);
+  const wasMobileViewportRef = useRef(getIsMobileViewport());
 
   const events = useCalendarStore((state) => state.events);
   const isEventsLoading = useCalendarStore((state) => state.isEventsLoading);
@@ -203,11 +193,15 @@ export const CalendarShell = () => {
   }, []);
 
   useEffect(() => {
-    if (!isMobileViewport) {
-      return;
-    }
+    const shouldSwitchView = shouldSwitchToMobileDefaultView({
+      wasMobileViewport: wasMobileViewportRef.current,
+      isMobileViewport,
+      activeView,
+    });
 
-    if (isSimpleMobileView(activeView)) {
+    wasMobileViewportRef.current = isMobileViewport;
+
+    if (!shouldSwitchView) {
       return;
     }
 
